@@ -1,0 +1,8 @@
+4 de mayo entrega del sistema SAD
+
+3 semanas 
+	sql 
+	consultas - join inner join left join outer join
+	sub consultas
+	programacion
+	appinventor

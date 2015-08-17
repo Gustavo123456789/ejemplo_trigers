@@ -1,0 +1,45 @@
+CREATE USER prueba;
+
+CREATE USER prueba IDENTIFIED BY 'prueba'
+
+ALTER USER prueba IDENTIFIED BY 'prueba';
+
+GRANT ALL PRIVILEGES ON *.* TO 'prueba'@'%';
+
+DROP USER prueba;
+
+SELECT * FROM usuarios;
+
+UPDATE usuarios SET ci=369852 WHERE id_usuario=6;
+
+
+
+SET AUTOCOMMIT=1;
+
+START TRANSACTION;
+
+INSERT INTO usuarios(ci,nombre,ap_paterno,ap_materno,celular,fecha_nac,email,nacionalidad,id_rol) 
+	VALUES(123,'Wilmer','Valencia','Nose','6985','2001-01-01','valencia@hotmail.com','chapareño','1');
+
+UPDATE usuarios SET ci=369852 WHERE id_usuario=6;
+
+COMMIT;
+
+ROLLBACK;
+
+SELECT * FROM usuarios;
+
+LOCK TABLES usuarios WRITE;
+
+UNLOCK TABLES;
+
+UPDATE usuarios SET ci=555 WHERE id_usuario=8;
+SAVEPOINT sp555;
+UPDATE usuarios SET ci=666 WHERE id_usuario=8;
+SAVEPOINT sp666;
+UPDATE usuarios SET ci=777 WHERE id_usuario=8;
+SAVEPOINT sp777;
+UPDATE usuarios SET ci=888 WHERE id_usuario=8;
+SAVEPOINT sp888;
+
+ROLLBACK TO sp666;
